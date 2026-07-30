@@ -2,32 +2,31 @@
 
 # Where the RDSF is mounted - for reading the data + creating DICOMs
 # The create_dicoms.py script creates these
-rdsf_dir: "/home/mh19137/zebrafish_rdsf/"
+# rdsf_dir: "/home/mh19137/zebrafish_rdsf/"
+rdsf_dir: "."
 
 # We will create DICOM files holding our training data to make the rest of the analysis more convenient.
 # This tells us where to store them.
 #
 # You might notice that they are very similar to the `label_dirs` entry in `config.yml`
 dicom_dirs:
-  - "dicoms/Training set 2/"
-  - "dicoms/Training set 3 (base of jaw)/"
-  - "dicoms/Training set 4 (Wahab resegmented by felix)/"
+  - "dicoms/"
 
 # For fine-tuning: where the quadrate DICOMs will go
-quadrate_dir: "/home/mh19137/zebrafish_jaw_segmentation/dicoms/quadrates/"
+quadrate_dir: "G:/DL/Chrissy/Pharangyal Jaws/quadrates/"
 
 # Must end in .pkl (the model will be pickled)
 # The model will be saved in the model/ directory
-model_path: "example_segmenter.pkl"
+model_path: "spine_segmenter.pkl"
 
 # Which ones to use for testing and validation
 # all the others will be used for testing
 validation_dicoms:
- - "39"  # 7 month wt, originally labelled by Wahab
+ - "890000"  # 7 month wt, originally labelled by Wahab
 
 # At the moment this can only be 1-length
 test_dicoms:
- - "131"  # 2.5yr het chst11 chst11 talen
+ - "930000"  # 2.5yr het chst11 chst11 talen
 
 # Optimiser options
 optimiser: "Adam"  # Must be one of the torch.optim optimiser
@@ -56,7 +55,7 @@ test_train_seed: 1
 device: "cuda"
 window_size: "192,192,192"  # Comma-separated ZYX. Needs to be large enough to hold the whole jaw
 patch_size: "160,160,160"  # Bigger holds more context, smaller is faster and allows for bigger batches
-batch_size: 12
+batch_size: 4
 epochs: 600
 lr_lambda: 0.99999  # Exponential decay factor (multiplicative with each epoch)
 num_workers: 6  # Number of workers for the dataloader
@@ -111,7 +110,7 @@ jaw_loc_config:
   # the model initially learns the rough location and then narrows it down)
   initial_kernel_size: 8
 
-  batch_size: 8
+  batch_size: 4
   n_workers: 10
   device: "cuda"
   learning_rate: 0.0001
@@ -121,5 +120,4 @@ jaw_loc_config:
   # We don't want to train the locator model on the partial jaws
   # So these are just the training sets which contain the complete jaw
   dicom_dirs:
-    - "dicoms/Training set 2"
-    - "dicoms/Training set 4 (Wahab resegmented by felix)"
+    - "dicoms/"

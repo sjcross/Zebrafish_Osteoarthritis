@@ -1,5 +1,6 @@
 # Outputs
 script_output/
+dicoms/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

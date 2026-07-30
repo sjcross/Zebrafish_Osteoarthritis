@@ -95,7 +95,7 @@ def _dicom_paths(config: dict) -> list[pathlib.Path]:
     """
     input_dirs = [pathlib.Path(d) for d in config["dicom_dirs"]]
     return sorted(
-        [path for input_dir in input_dirs for path in input_dir.glob("**/*.dcm")]
+        [path for input_dir in input_dirs for path in input_dir.glob("**/*.dcm") if "downsampled_dicoms" not in path.parts]
     )
 
 
@@ -153,7 +153,12 @@ def main(model_name: str, debug_plots: bool, dont_shrink_heatmap: bool) -> None:
         _train_test_split(downsampled_paths, dicom_paths)
     )
     print(len(train_paths), "train, ", len(val_paths), "val")
+    
+    assert len(train_paths) < config["batch_size"], "Batch size shouldn't be larger than training data size"
 
+    if len(train_paths) < config["batch_size"]:
+        raise ValueError("Batch size shouldn't be larger than training data size")
+        
     # Set up training data heatmaps
     train_imgs, train_labels = zip(*[io.read_dicom(p) for p in train_paths])
     train_data = data.HeatmapDataset(

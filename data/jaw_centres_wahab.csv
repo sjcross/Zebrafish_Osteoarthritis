@@ -1,0 +1,67 @@
+# Jaw centres for test data - found by looking at the images in ImageJ,,,,,,,
+# Was more useful when we didn't have a jaw locating model,,,,,,,
+# When slicing the array the Z value refers to one beyond the last slice,,,,,,,
+# i.e. access the last image to keep with array[z-1]; when slicing a volume from the array,,,,,,,
+# use array[z-d:z],,,,,,,
+# NB: for training set 3 (where we don't crop around the centre), I've accidentally defined,,,,,,
+# The x and y axes backwards, or something. Whoops,,,,,,
+n,z,x,y,crop_around_centre,age,genotype,strain
+30,1435,390,161,True,12.0,wt,wt
+31,1350,243,409,True,12.0,wt,wt
+39,1414,324,215,True,7.0,wt,wt
+50,1262,243,333,True,4.0,wt,wt
+51,1636,403,301,True,4.0,wt,wt
+54,1485,159,426,True,4.0,wt,wt
+58,1436,172,269,True,30.0,wt,wt
+69,1539,418,371,True,12.0,wt,wt
+340,1497,358,388,True,18.0,wt,wt
+341,1400,271,246,True,18.0,wt,wt
+343,1767,261,277,True,18.0,wt,wt
+57,1600,189,326,True,30.0,wt,wt
+59,1549,403,141,True,30.0,wt,wt
+60,1716,280,289,True,30.0,wt,wt
+82,1719,334,163,True,36.0,wt,wt
+83,1603,184,162,True,36.0,wt,wt
+84,1734,235,406,True,36.0,wt,wt
+85,1589,250,315,True,36.0,wt,wt
+86,1524,211,239,True,36.0,wt,wt
+107,1778,360,305,True,18.0,hom,arid1b
+116,1760,190,351,True,8.0,hom,panther
+117,1750,280,346,True,8.0,hom,panther
+118,1782,261,334,True,8.0,hom,panther
+131,1554,313,157,True,30.0,het,chst11
+133,1529,195,285,True,30.0,wt,chst11
+135,1508,312,225,True,30.0,wt,chst11
+139,1472,187,285,True,24.0,het,chst11
+167,1277,219,295,True,4.0,mosaic,ncoa3
+168,1566,419,494,True,4.0,mosaic,ncoa3
+169,1619,390,324,True,4.0,mosaic,ncoa3
+193,1475,299,179,True,12.0,hom,mcf2l
+216,1638,325,315,True,18.0,wt,dot1
+220,1413,261,389,True,24.0,wt,wt
+230,1405,276,362,True,28.0,het,col9
+246,1636,307,184,True,14.0,het,sp7
+247,1714,285,432,True,14.0,het,sp7
+248,1725,327,370,True,14.0,het,sp7
+249,1618,261,302,True,14.0,het,sp7
+250,1710,345,255,True,14.0,het,sp7
+291,1490,280,329,True,12.0,het,col11a2
+351,331,277,369,True,3.0,hom,wnt16
+401,1375,254,408,True,12.0,mosaic,ctsk
+420,1289,208,348,True,12.0,hom,col11a2
+441,1834,235,448,True,10.0,het,irf6
+93,1621,174,198,False,36.0,wt,wt
+68,1558,372,335,False,12.0,wt,wt
+53,1503,233,283,False,4.0,wt,wt
+186,1651,435,423,False,18.0,wt,barx1
+2,1712,325,302,False,24.0,wt,wt
+52,1693,429,209,False,4.0,wt,wt
+26,1566,465,169,False,18.0,het,barx1
+4,1638,481,489,False,24.0,wt,wt
+25,1531,430,462,False,18.0,het,barx1
+185,1714,323,268,False,18.0,wt,barx1
+91,1464,411,311,False,36.0,wt,wt
+38,1606,487,318,False,7.0,wt,wt
+3,1679,370,449,False,24.0,wt,wt
+37,1722,423,425,False,7.0,wt,wt
+1,1649,425,386,False,24.0,wt,wt

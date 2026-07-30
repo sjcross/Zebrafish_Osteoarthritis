@@ -57,7 +57,7 @@ def _get_n(label_path: pathlib.Path) -> int:
         return files.oldn2newn()[old_n]
 
     # The first number in the filename for training sets 2 and 3
-    return int(stem.split(".")[0][3:])
+    return int(stem.split(".")[0])
 
 
 def create_dicoms(
@@ -147,13 +147,13 @@ def main(dry_run: bool):
     # Some might be duplicated between the different sets
     # So exclude the duplicates here
     # Also, some of the shapes don't match up with the labels, so exclude those too
-    create_dicoms(
-        config, 1, dry_run, ignore=files.duplicate_dicoms() | files.broken_dicoms()
-    )
+    # create_dicoms(
+    #     config, 1, dry_run, ignore=files.duplicate_dicoms() | files.broken_dicoms()
+    # )
 
     # Training set 4
     # Felix's resegmentations from Wahab's images - should be no duplicates
-    create_dicoms(config, 2, dry_run)
+    # create_dicoms(config, 2, dry_run)
 
 
 if __name__ == "__main__":
